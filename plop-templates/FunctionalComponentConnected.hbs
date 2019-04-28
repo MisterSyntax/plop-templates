@@ -1,0 +1,36 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+// --- styles --- //
+import styles from './{{componentName}}.less';
+
+// -- components -- //
+
+// -- actions -- //
+
+// -- selectors -- //
+
+export const {{componentName}} = () => {
+    return (
+        <div />
+    );
+};
+
+{{componentName}}.propTypes = {
+
+};
+
+{{componentName}}.defaultProps = {
+
+};
+
+/* istanbul ignore next */
+const mapStateToProps = state => ({
+
+});
+
+const mapDispatchToProps = {
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)({{componentName}});

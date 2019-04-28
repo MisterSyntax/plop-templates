@@ -1,0 +1,7 @@
+import register from '../../helpers/ActionRegistrar';
+
+export const MY_EVENT_NAME = register('MY_EVENT_NAME');
+
+export const myEvent = () => ({
+    type: MY_EVENT_NAME
+});

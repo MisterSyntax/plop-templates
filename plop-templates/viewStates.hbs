@@ -1,0 +1,35 @@
+import { createSelector } from 'reselect';
+import deep from 'deep-get-set';
+import { getViewStates } from '../viewStates'; // TODO: Update this path!
+import {
+    MY_EVENT_NAME
+} from './actions';
+
+// Helpers
+
+// Reducers
+export function myComponentReducer(state = {}, action = {}) {
+    switch (action.type) {
+        case MY_EVENT_NAME:
+            return {
+                ...state,
+                thing: true,
+            };
+
+        default:
+            return state;
+    }
+}
+
+
+// Selectors
+
+export const getMyComponentViewState = createSelector(
+    getViewStates,
+    viewStates => deep(viewStates, 'myComponent') || {}
+);
+
+export const getMyComponentThing = createSelector(
+    getMyComponentViewState,
+    myComponent => deep(myComponent, 'thing') || false,
+);

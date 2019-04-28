@@ -1,0 +1,33 @@
+import { deepEqual } from 'fast-equals';
+import { createSelector } from 'reselect';
+import deep from 'deep-get-set';
+import { getApiData } from '../selectors'; // Update this path!
+import {
+
+} from './actions';
+
+// Helpers
+
+// Reducers
+export function Reducer(state = {}, action = {}) {
+    switch (action.type) {
+        case LOAD: {
+            return state;
+        }
+
+        case LOAD_SUCCESS: {
+            const newState = deep(action, 'result');
+            return deepEqual(newState, state) ? state : newState;
+        }
+
+        case LOAD_FAILURE: {
+            return state;
+        }
+
+        default:
+            return state;
+    }
+}
+
+
+// Selectors
